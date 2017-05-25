@@ -4,12 +4,12 @@ body{
 }
 .header{
     width: 100%;
-    background-color: #FF8D00;
+    background-color: #FF9600;
     color: white;
     height: 60px;
 }
 .tabs{
-    background-color: #FF8D00;
+    background-color: #FF9600;
 }
 .header_h5{
     color: white;
