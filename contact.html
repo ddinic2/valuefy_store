@@ -27,13 +27,13 @@
         <div class="container">
             <div class="row">
                 <ul class="tabs">
-                    <li class="tab col l6 s5 m5 offset-s1 offset-m1"><a href="index.html">
+                    <li class="tab col l6 s5 m5 offset-s1 offset-m1"><a href="index.html" data-link>
                             <h5 class="header_h5">
                                 VALUEFY HOME
                             </h5>
                         </a>
                     </li>
-                    <li class="tab col l6 m5 s5"><a class="active" href="contact.html">
+                    <li class="tab col l6 m5 s5"><a class="active" href="contact.html" data-link>
                             <h6 class="header_h6">
                                 CONTACT
                             </h6>
@@ -89,5 +89,22 @@
 
     <script type="text/javascript" src="resources/main.js"></script>
 
+    <script>
+        function getParameterByName(name) {
+            var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+
+        $(document).ready(function() {
+            var token = getParameterByName('ProjectToken')
+            if (!token) {
+                window.location.href = 'http://sgiz.mobi/s3/ValueFY-survey';
+            } else {
+                $('[data-link]').each(function () {
+                    $(this).attr('href', $(this).attr('href') + "?ProjectToken=" + token)
+                })
+            }
+        });
+    </script>
 </body>
 </html>
